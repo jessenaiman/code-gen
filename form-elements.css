@@ -1,0 +1,105 @@
+/* Form element styles */
+label {
+  display: block;
+  margin-bottom: 8px;
+  color: var(--mode-label);
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+select, textarea, input[type="text"] {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid var(--mode-form-border);
+  border-radius: 8px;
+  background-color: var(--mode-form-bg);
+  color: #fff;
+  box-sizing: border-box;
+  transition: all 0.3s ease, background-color 0.3s ease, border-color 0.3s ease;
+}
+
+select:focus, textarea:focus, input[type="text"]:focus {
+  border-color: var(--mode-form-focus-border);
+  outline: none;
+  box-shadow: 0 0 0 2px var(--mode-form-focus-shadow);
+}
+
+textarea {
+  height: 120px;
+  resize: vertical;
+  font-family: inherit;
+}
+
+.checkbox-group input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--mode-primary);
+  transition: accent-color 0.3s ease;
+}
+
+/* Custom language input styles */
+.custom-language-input {
+  margin-top: 10px;
+  transition: all 0.3s ease;
+}
+
+.custom-language-input.hidden {
+  display: none;
+}
+
+.custom-language-input input[type="text"] {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid var(--mode-form-border);
+  border-radius: 8px;
+  background-color: var(--mode-form-bg);
+  color: #fff;
+  box-sizing: border-box;
+  transition: all 0.3s ease, background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.custom-language-input input[type="text"]:focus {
+  border-color: var(--mode-form-focus-border);
+  outline: none;
+  box-shadow: 0 0 0 2px var(--mode-form-focus-shadow);
+}
+
+/* Mode option visibility toggles */
+[data-mode-option] {
+  transition: opacity 0.3s ease, max-height 0.3s ease;
+  max-height: 500px;
+  overflow: hidden;
+  opacity: 1;
+}
+
+[data-mode-option].hidden {
+  max-height: 0;
+  opacity: 0;
+  padding: 0;
+  margin: 0;
+  border: none;
+}
+
+#generatorOptions {
+  transition: opacity 0.3s ease, max-height 0.3s ease;
+  max-height: 500px;
+  overflow: hidden;
+  opacity: 1;
+}
+
+#generatorOptions.hidden {
+  max-height: 0;
+  opacity: 0;
+}
+
+#commenterOptions {
+  transition: opacity 0.3s ease, max-height 0.3s ease;
+  max-height: 500px;
+  overflow: hidden;
+  opacity: 1;
+}
+
+#commenterOptions.hidden {
+  max-height: 0;
+  opacity: 0;
+}

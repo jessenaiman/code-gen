@@ -1,0 +1,110 @@
+/* Base styles for fundamental elements */
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: #0f172a;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+  padding: 20px;
+  transition: background-color 0.3s ease;
+}
+
+.hljs {
+  background: #0f172a;
+  padding: 0;
+}
+
+/* Modal Overlay */
+#suggestion-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+#suggestion-modal.hidden {
+  display: none !important;
+}
+
+/* Modal Content */
+.modal-content {
+  background-color: var(--mode-container-bg); /* Use mode container background */
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
+  max-width: 500px;
+  width: 90%;
+  text-align: center;
+  color: #fff;
+  position: relative;
+  border: 1px solid var(--mode-form-border); /* Use form border color */
+}
+
+.modal-content h2 {
+  color: var(--mode-primary); /* Use primary mode color */
+  margin-top: 0;
+  margin-bottom: 15px;
+  font-size: 1.8em;
+}
+
+.modal-content p {
+  margin-bottom: 15px;
+  line-height: 1.6;
+  font-size: 1.1em;
+  color: var(--mode-label); /* Use label color for text */
+}
+
+.modal-close-button {
+  background-color: var(--mode-primary); /* Use primary mode color */
+  color: white;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1.1em;
+  font-weight: 600;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.modal-close-button:hover {
+  background-color: color-mix(in srgb, var(--mode-primary) 80%, black); /* Darken primary color */
+  transform: translateY(-2px);
+}
+
+/* Toast notification styles */
+.toast {
+  background-color: #60a5fa;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 8px;
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1000;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.toast.error {
+  background-color: #ef4444;
+}
+
+/* Optional: style for disabled checkbox group if desired */
+.checkbox-group.disabled-option label {
+  color: #6b7280; /* Lighter color for disabled label */
+  cursor: not-allowed;
+}
+.checkbox-group.disabled-option input[type="checkbox"] {
+  cursor: not-allowed;
+}

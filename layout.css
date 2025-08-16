@@ -1,0 +1,248 @@
+/* Layout-related styles */
+.container {
+  background-color: #1e293b;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+  width: 100%;
+  max-width: 700px;
+  transition: background-color 0.3s ease;
+}
+
+.title-section {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.subtitle {
+  color: #60a5fa;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: bold;
+  margin: 0;
+  font-size: 0.9em;
+  transition: color 0.3s ease;
+}
+
+h1 {
+  margin: 10px 0;
+  color: #f8fafc;
+  font-size: 2.5em;
+  font-weight: 800;
+}
+
+.input-group {
+  margin-bottom: 20px;
+}
+
+.checkbox-group {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  gap: 8px;
+}
+
+.mode-switch {
+  margin: 0 0 20px;
+  padding: 10px;
+  background-color: #1e293b;
+  border-radius: 8px;
+  border: 1px solid #334155;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+/* Sidebar styles */
+.sidebar {
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 100vh;
+  background-color: #1a2234; /* Default sidebar color */
+  width: 50px; /* Collapsed width */
+  transition: width 0.3s ease, background-color 0.3s ease;
+  overflow: hidden;
+  z-index: 100;
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.sidebar.expanded {
+  width: 230px;
+}
+
+.sidebar-toggle {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  padding: 8px;
+  width: auto;
+  font-size: 1.2em;
+}
+
+.sidebar-toggle:hover {
+  background: none;
+  transform: none;
+}
+
+/* Sidebar scrolling enhancements */
+.sidebar-tabs {
+  margin-top: 60px;
+  width: 100%;
+  max-height: calc(100vh - 100px); /* Limit height to viewport */
+  overflow-y: auto; 
+  overscroll-behavior: contain; /* Prevent scroll bounce */
+  scrollbar-width: thin; /* Thin scrollbar for Firefox */
+  scrollbar-color: var(--mode-primary, #60a5fa) rgba(0, 0, 0, 0.1); /* Scrollbar color for Firefox */
+}
+
+/* Webkit (Chrome, Safari) scrollbar styling */
+.sidebar-tabs::-webkit-scrollbar {
+  width: 8px; /* Thin scrollbar */
+}
+
+.sidebar-tabs::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.1); /* Light track color */
+  border-radius: 4px;
+}
+
+.sidebar-tabs::-webkit-scrollbar-thumb {
+  background: var(--mode-primary, #60a5fa); /* Dynamic color based on current mode */
+  border-radius: 4px;
+}
+
+.sidebar-tabs::-webkit-scrollbar-thumb:hover {
+  background: color-mix(in srgb, var(--mode-primary, #60a5fa) 80%, white);
+}
+
+/* Mode buttons */
+.mode-button {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 12px;
+  background: none;
+  border: none;
+  color: #cbd5e1;
+  cursor: pointer;
+  text-align: left;
+  border-radius: 6px;
+  margin-bottom: 8px;
+  transition: all 0.2s ease;
+  flex-shrink: 0;
+}
+
+.mode-button:hover {
+  background: rgba(255, 255, 255, 0.1);
+  transform: none;
+}
+
+.mode-button.active {
+  background: rgba(96, 165, 250, 0.2);
+  color: #fff;
+}
+
+.mode-button i {
+  margin-right: 10px;
+  font-size: 1.1em;
+}
+
+.tab-button {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 15px;
+  background: none;
+  border-radius: 0;
+  border: none;
+  color: #cbd5e1;
+  cursor: pointer;
+  text-align: left;
+  gap: 10px;
+  transition: all 0.2s ease;
+}
+
+.tab-button:hover {
+  background: rgba(255, 255, 255, 0.1);
+  transform: none;
+}
+
+.tab-button.active {
+  background: rgba(255, 255, 255, 0.05);
+  color: #fff;
+}
+
+.tab-button i {
+  font-size: 1.2em;
+  min-width: 24px;
+  text-align: center;
+}
+
+.tab-content {
+  display: none;
+  padding: 10px 15px;
+}
+
+.tab-content.active {
+  display: block;
+}
+
+/* Adjust main content for sidebar */
+.container {
+  margin-left: 80px; /* Default margin for collapsed sidebar */
+  transition: margin-left 0.3s ease;
+}
+
+.container.sidebar-expanded {
+  margin-left: 270px;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .sidebar-tabs {
+    max-height: calc(100vh - 80px); /* Slightly smaller on mobile */
+  }
+
+  .sidebar {
+    width: 50px; /* Collapsed width stays the same */
+  }
+
+  .sidebar.expanded {
+    width: 250px; /* Slightly wider on mobile */
+  }
+
+  .sidebar-tabs {
+    padding-right: 10px; /* Prevent scrollbar from touching edge */
+  }
+
+  .container {
+    margin-left: 20px;
+  }
+  
+  .container.sidebar-expanded {
+    margin-left: 270px;
+  }
+}
+
+@media (max-width: 480px) {
+  .sidebar-tabs {
+    max-height: calc(100vh - 60px); /* Even smaller on very small screens */
+  }
+
+  .mode-button {
+    padding: 10px; /* Slightly smaller buttons */
+    font-size: 0.9em;
+  }
+
+  .mode-button i {
+    margin-right: 8px; /* Slightly reduced icon margin */
+  }
+}
+
+@media (max-width: 568px) {
+  .sidebar-tabs {
+    max-height: 240px;
+  }
+}

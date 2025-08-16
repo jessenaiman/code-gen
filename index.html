@@ -1,0 +1,110 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Code Generator</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+  <div class="sidebar">
+    <button class="sidebar-toggle">
+      <i class="fas fa-bars"></i>
+    </button>
+    <div class="sidebar-tabs">
+      <!-- Tabs will be dynamically generated -->
+    </div>
+  </div>
+  <div class="container">
+    <div class="title-section">
+      <p class="subtitle">Advanced</p>
+      <h1><span id="titleText">AI Code Generator</span></h1>
+    </div>
+
+    <div class="input-group">
+      <label for="language">Programming Language/Software:</label>
+      <select id="language">
+        <option value="javascript">JavaScript</option>
+        <option value="css">CSS</option>
+        <option value="html">HTML</option>
+        <option value="html_css_javascript_all_in_one_file">HTML + CSS + Javascript (All in one file)</option>
+        <option value="python">Python</option>
+        <option value="java">Java</option>
+        <option value="cpp">C++</option>
+        <option value="csharp">C#</option>
+        <option value="php">PHP</option>
+        <option value="ruby">Ruby</option>
+        <option value="swift">Swift</option>
+        <option value="kotlin">Kotlin</option>
+        <option value="rust">Rust</option>
+        <option value="go">Go</option>
+        <option value="typescript">TypeScript</option>
+        <option value="sql">SQL</option>
+        <option value="lua">Lua</option>
+        <option value="custom">+ Add Custom Language</option>
+      </select>
+      <div id="customLanguageInput" class="custom-language-input hidden">
+        <input type="text" id="customLanguage" placeholder="Enter custom language name">
+      </div>
+    </div>
+
+    <!-- Target Language input group moved here -->
+    <div class="input-group hidden" data-mode-option="targetLanguage">
+      <label for="targetLanguage">Target Language:</label>
+      <select id="targetLanguage">
+        <option value="javascript">JavaScript</option>
+        <option value="css">CSS</option>
+        <option value="html">HTML</option>
+        <option value="html_css_javascript_all_in_one_file">HTML + CSS + Javascript (All in one file)</option>
+        <option value="python">Python</option>
+        <option value="java">Java</option>
+        <option value="cpp">C++</option>
+        <option value="csharp">C#</option>
+        <option value="php">PHP</option>
+        <option value="ruby">Ruby</option>
+        <option value="swift">Swift</option>
+        <option value="kotlin">Kotlin</option>
+        <option value="rust">Rust</option>
+        <option value="go">Go</option>
+        <option value="typescript">TypeScript</option>
+        <option value="sql">SQL</option>
+        <option value="lua">Lua</option>
+      </select>
+    </div>
+
+    <div class="input-group">
+      <label id="descriptionLabel" for="description">Description of Code to Generate/Modify:</label>
+      <textarea id="description" placeholder="Describe what you want the code to do..."></textarea>
+    </div>
+
+    <!-- Mode-specific options -->
+    <div id="modeOptionsContainer">
+      <!-- Mode option controls will be created dynamically by the app -->
+    </div>
+
+    <button id="execute">
+      <span class="button-text">Execute</span>
+      <div class="loading-spinner"></div>
+    </button>
+
+    <div id="output" class="output hidden">
+      <!-- Code output will be displayed here -->
+    </div>
+  </div>
+
+  <!-- Suggestion Modal -->
+  <div id="suggestion-modal" class="hidden">
+    <div class="modal-content">
+      <h2>Community Suggested Features!</h2>
+      <p>This "Suggestions" tab showcases new generator modes and features that have been implemented based on ideas from our community!</p>
+      <p>For example, the new "Roaster" mode was a direct suggestion from a user like you!</p>
+      <p>Keep an eye out for more exciting additions, and feel free to submit your own ideas through this project's comment section!</p>
+      <button id="suggestion-modal-close" class="modal-close-button">Got It!</button>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/pyodide/v0.25.1/full/pyodide.js"></script>
+  <script type="module" src="script.js"></script>
+</body>
+</html>

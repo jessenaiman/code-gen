@@ -1,0 +1,238 @@
+/* Output container styles */
+.output {
+  position: relative;
+  margin-top: 20px;
+  padding: 20px;
+  border: 1px solid #334155;
+  border-radius: 8px;
+  background-color: #0f172a;
+  color: #fff;
+  line-height: 1.5;
+  overflow-x: auto;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+  /* Ensure min-width and no weird resizing */
+  min-width: 0;
+}
+.output.hidden {
+  display: none;
+}
+
+.output pre {
+  margin-top: 30px;
+  font-family: 'Fira Code', monospace;
+  white-space: pre-wrap;
+  margin: 0;
+}
+
+.output:not(:has(pre)) {
+  white-space: normal;
+  font-family: 'Inter', sans-serif;
+}
+
+.output ul, .output ol {
+  margin: 10px 0;
+  padding-left: 20px;
+}
+
+/* Updated: Apply theme color to all heading levels within output */
+.output h1, .output h2, .output h3, .output h4, .output h5, .output h6 {
+  margin: 15px 0 10px 0;
+  color: var(--mode-output-h2h3); /* Use CSS variable for theme consistency */
+  transition: color 0.3s ease;
+}
+
+.output p {
+  margin: 10px 0;
+}
+
+/* Review score styles */
+.score {
+  font-size: 2em;
+  font-weight: bold;
+  text-align: center;
+  margin: 20px 0;
+  padding: 10px;
+  border-radius: 8px;
+}
+
+.score.high {
+  color: #22c55e;
+  background-color: rgba(34, 197, 94, 0.1);
+}
+
+.score.medium {
+  color: #eab308;
+  background-color: rgba(234, 179, 8, 0.1);
+}
+
+.score.low {
+  color: #ef4444;
+  background-color: rgba(239, 68, 68, 0.1);
+}
+
+/* Reasoning button and content styles */
+.reasoning-button {
+  display: block;
+  width: 100%;
+  margin-top: 20px;
+  padding: 10px;
+  background-color: var(--mode-primary, #60a5fa); /* Use theme primary color */
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.reasoning-button:hover {
+  background-color: color-mix(in srgb, var(--mode-primary, #60a5fa) 80%, black); /* Darken primary color */
+  transform: translateY(-1px);
+}
+
+.reasoning-content {
+  margin-top: 10px;
+  padding: 0; 
+  background-color: transparent; 
+  border: none; 
+  border-radius: 0; 
+  overflow-x: auto;
+}
+
+.reasoning-content.hidden {
+  display: none;
+}
+
+.reasoning-content pre {
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  font-family: 'Consolas', 'Fira Code', monospace; /* Add Consolas */
+  margin: 0;
+}
+
+/* Ensure any code tags within reasoning content also get the Consolas font */
+.reasoning-content code {
+  font-family: 'Consolas', 'Fira Code', monospace;
+}
+
+/* Reasoning step container */
+.reasoning-step {
+  margin-bottom: 10px; /* Space between steps */
+  border-radius: 8px; /* Slight roundness for each step */
+  overflow: hidden; /* For max-height transition */
+}
+
+/* Step title (clickable area) */
+.reasoning-step .step-title {
+  background-color: var(--mode-form-bg); /* Use form bg for title background */
+  padding: 12px 15px;
+  margin: 0; /* Remove default h3 margin */
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: var(--mode-primary); /* Primary color for title text */
+  font-size: 1.1em;
+  font-weight: 600;
+  border-bottom: 1px solid var(--mode-form-border); /* Separator */
+  transition: background-color 0.2s ease;
+}
+
+.reasoning-step .step-title:hover {
+  background-color: color-mix(in srgb, var(--mode-form-bg) 85%, white); /* Slightly lighter on hover */
+}
+
+/* Style for the toggle icon */
+.reasoning-step .toggle-icon {
+  margin-left: 10px;
+  transition: transform 0.2s ease;
+  color: var(--mode-label); /* Icon color */
+}
+
+.reasoning-step .toggle-icon.fa-chevron-up {
+  transform: rotate(180deg);
+}
+
+/* Step content container */
+.reasoning-step .step-content {
+  background-color: var(--mode-output-bg); /* Use output bg for content */
+  padding: 15px;
+  padding-top: 5px; /* Adjust padding if needed */
+  max-height: 1000px; /* Arbitrary large value for expansion */
+  transition: max-height 0.3s ease-out, opacity 0.3s ease-out, padding 0.3s ease-out;
+  opacity: 1;
+  overflow: hidden;
+  color: #cbd5e1; /* Default text color for content */
+  white-space: pre-wrap; /* Render newlines */
+  word-wrap: break-word; /* Break long words */
+}
+
+.reasoning-step .step-content.hidden {
+  max-height: 0;
+  opacity: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+/* Inner paragraph styling within step content */
+.reasoning-step .step-content p {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  color: inherit; /* Inherit color from parent (.step-content) */
+  line-height: 1.6;
+}
+
+/* Python output console */
+.python-output-console {
+  margin-top: 10px;
+  padding: 15px;
+  background-color: var(--mode-output-bg, #0f172a);
+  border: 1px solid var(--mode-output-border, #334155);
+  border-radius: 8px;
+  font-family: 'Consolas', 'Fira Code', monospace;
+  color: #cbd5e1;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+/* iframe for running code */
+.resizable-iframe-container {
+  position: relative;
+  width: 100%;
+  min-width: 200px;
+  min-height: 100px;
+  height: 300px;
+  border: 1px solid var(--mode-output-border, #334155);
+  margin-top: 10px;
+  resize: both;
+  overflow: auto;
+  box-sizing: border-box;
+  /* Make sure parent .output expands horizontally if iframe overflows */
+  display: block;
+  max-width: none;
+}
+
+.resizable-iframe-container iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  background-color: #fff;
+  min-width: 200px;
+  min-height: 100px;
+  display: block;
+  /* Let the iframe expand to parent container */
+  box-sizing: border-box;
+}
+
+/* Allow .output to scroll if children overflow horizontally */
+.output {
+  overflow-x: auto;
+  min-width: 0;
+}
+
+@media (max-width: 900px) {
+  .resizable-iframe-container,
+  .output {
+    max-width: 100vw;
+    overflow-x: auto;
+  }
+}

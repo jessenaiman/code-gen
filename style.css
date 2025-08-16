@@ -1,0 +1,80 @@
+/* Master style sheet that imports all other CSS files */
+@import 'base.css';
+@import 'layout.css';
+@import 'form-elements.css';
+@import 'buttons.css';
+@import 'output.css';
+@import 'responsive.css';
+
+/* Add new CSS variables for dynamic colors */
+:root {
+  --mode-primary: #60a5fa;
+  --mode-button-bg: rgba(96, 165, 250, 0.2);
+  --mode-subtitle: #60a5fa;
+  --mode-label: #a7bde9;
+  --mode-form-bg: #0f172a;
+  --mode-form-border: #334155;
+  --mode-form-focus-border: #60a5fa;
+  --mode-form-focus-shadow: rgba(96, 165, 250, 0.2);
+  --mode-body-bg: #0f172a;
+  --mode-container-bg: #1e293b;
+  --mode-sidebar-bg: #1a2234;
+  --mode-reasoning-bg: #0f172a;
+  --mode-reasoning-border: #334155;
+  --mode-output-bg: #0f172a;
+  --mode-output-border: #334155;
+  --mode-output-h2h3: #60a5fa;
+}
+
+/* Base colors */
+body {
+  background-color: var(--mode-body-bg);
+}
+
+.container {
+  background-color: var(--mode-container-bg);
+}
+
+.subtitle {
+  color: var(--mode-subtitle);
+}
+
+.sidebar {
+  background-color: var(--mode-sidebar-bg);
+}
+
+.mode-button.active {
+  background: var(--mode-button-bg);
+}
+
+/* Output colors */
+.output {
+  background-color: var(--mode-output-bg);
+  border-color: var(--mode-output-border);
+}
+
+.output h2, .output h3 {
+  color: var(--mode-output-h2h3);
+}
+
+/* Reasoning colors */
+.reasoning-content {
+  background-color: var(--mode-reasoning-bg);
+  border-color: var(--mode-reasoning-border);
+}
+
+/* Score colors - these stay consistent across modes */
+.score.high {
+  color: #22c55e;
+  background-color: rgba(34, 197, 94, 0.1);
+}
+
+.score.medium {
+  color: #eab308;
+  background-color: rgba(234, 179, 8, 0.1);
+}
+
+.score.low {
+  color: #ef4444;
+  background-color: rgba(239, 68, 68, 0.1);
+}

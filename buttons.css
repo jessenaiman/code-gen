@@ -1,0 +1,135 @@
+/* Button styles */
+button {
+  display: flex;
+  width: 100%;
+  padding: 14px;
+  background-color: #60a5fa;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 1.1em;
+  transition: all 0.3s ease, background-color 0.3s ease;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+button:hover {
+  background-color: #3b82f6;
+  transform: translateY(-1px);
+}
+
+button.loading {
+  position: relative;
+}
+
+button.loading .button-text {
+  visibility: hidden;
+}
+
+button.loading .loading-spinner {
+  display: block;
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* Loading spinner */
+.loading-spinner {
+  display: none;
+  width: 20px;
+  height: 20px;
+  border: 3px solid #ffffff3d;
+  border-top: 3px solid #fff;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Copy button styles */
+.copy-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  padding: 6px;
+  background-color: #334155;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1.0em;
+  transition: all 0.2s ease, background-color 0.3s ease;
+  opacity: 0.6; /* Slightly more transparent */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 32px;
+  height: 32px;
+}
+
+.copy-button i {
+  pointer-events: none;
+}
+
+.copy-button:hover {
+  opacity: 1; /* Fully opaque on hover */
+  background-color: #475569;
+  transform: translateY(0);
+}
+
+.copy-button.copied {
+  background-color: #22c55e;
+}
+
+.copy-button.error {
+  background-color: #ef4444;
+}
+
+/* Run code button styles */
+.run-code-button {
+  display: block;
+  width: auto;
+  margin: 10px auto 0;
+  padding: 6px 12px;
+  background-color: #334155;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.9em;
+  transition: all 0.2s ease, background-color 0.3s ease;
+  opacity: 0.8;
+}
+
+.run-code-button:hover {
+  opacity: 1;
+  background-color: #475569;
+}
+
+/* Button colors per mode */
+button.explainer-mode,
+button.reviewer-mode,
+button.commenter-mode,
+button.converter-mode,
+button.optimizer-mode {
+  background-color: inherit; /* Fallback */
+}
+
+button.explainer-mode:hover,
+button.reviewer-mode:hover,
+button.commenter-mode:hover,
+button.converter-mode:hover,
+button.optimizer-mode:hover {
+  background-color: inherit; /* Fallback */
+}
+
+.mode-button.hidden, .tab-button.hidden,
+.tab-content.hidden {
+  display: none !important;
+}
